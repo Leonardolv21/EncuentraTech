@@ -1,0 +1,28 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2{
+  margin:0px;
+}
+.bienvenida p{
+  margin:0px;
+}
+.bienvenida{
+ display:flex;
+ align-items: flex-start;
+ flex-direction: column;
+ gap: 24px;
+ padding: 16px 24px 32px;
+ margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+
+

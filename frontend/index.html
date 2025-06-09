@@ -3,51 +3,127 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inicio-visitante</title>
-  <link rel="stylesheet" href="/frontend/css/inicio-visitante.css">
+  <title>Pagina Principal</title>
+  
+  <link rel="stylesheet" href="/frontend/css/all.min.css">
+  
+  <link rel="stylesheet" href="/frontend/css//pagina_principal_visitante/inicio-visitante.css">
+  <link rel="stylesheet" href="/frontend/css/pagina_principal_visitante/header.css">
+  <link rel="stylesheet" href="/frontend/css/pagina_principal_visitante/categorias_destacadas.css">
+  <link rel="stylesheet" href="/frontend/css/pagina_principal_visitante/categorias_ofertadas.css">
+  <link rel="stylesheet" href="/frontend/css/pagina_principal_visitante/anuncios_destacados.css">
+  <link rel="stylesheet" href="/frontend/css/pagina_principal_visitante/footer.css">
 </head>
 <body>
-  <header>
-    <nav class="navegador">
-      <a id="inicio" href="index.html">CompuZone</a>
-      <a href="registro.html">Registrarse</a>
-      <a href="inicio-sesion.html">Iniciar Sesion</a>            
-    </nav>
-  </header>
-  <main>
-    <section>
-      <h2>Bienvenido a CompuZone</h2>
-      <p>Tu catalogo virtual para equipos y tecnologia portatil</p>
+  <main class="main-container">
+
+    <header class="header">
+      <div class="centrar-logo">
+        <h1 class="logo"><a href="index.html">EncuentraTech</a></h1>
+      </div>
+      <nav class="menu">
+        <label for="menu-switch" class="menu-mobile-label">
+          <i class="fa-solid fa-bars"></i>
+          Menu
+        </label>  
+        <input id="menu-switch" type="checkbox">
+        <ul>
+          <li><a href="lista-anuncio.html">Anuncios</a></li>
+          <li><a href="registro.html">Registrarse</a></li>
+          <li><a href="inicio-sesion.html">Iniciar Sesion</a></li>
+        </ul>  
+      </nav>
+    </header>
+
+    <section class="bienvenida">
+      <h2>Bienvenido a EncuentraTech</h2>
+      <p>Conecta con otros para comprar o vender tecnología</p>
     </section>
-    <section>
-      <h2>Categorias Destacadas</h2>
-      <a href="#">Laptops</a>
-      <a href="#">Gaming</a>
+
+    <section class="categorias_destacadas">
+      <h2>Categorías Destacadas</h2>
+      <ul class="lista-categorias-destacadas">
+       <li class="categoria-item">
+        <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
+         <p>Computadoras y Laptops</p>
+       </li>
+       <li class="categoria-item">
+        <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
+         <p>Celulares y Tablets</p>
+       </li>
+       <li class="categoria-item">
+        <img src="img/componentes.png" alt="Componentes">
+         <p>Componentes</p>
+       </li>
+      </ul>
     </section>
-    <section>
-      <h2>Categorias Ofertadas</h2>
-      <img src="#" alt="anuncio-Laptops">
-      <p>Laptops</p>
-      <img src="#" alt="anuncio-Gaming">
-      <p>Gaming</p>
-      <img src="#" alt="anuncio-UltraLigeras">
-      <p>UltraLigeras</p>
-    </section>
-    <section>
-      <h2>Anuncio Destacados</h2>
-      <img src="#" alt="anuncio-Laptops">
-      <button>Ver Más</button>
-      <img src="#" alt="anuncio-Gaming">
-      <button>Ver Más</button>
-      <img src="#" alt="anuncio-UltraLigeras">
-      <button>Ver Más</button>
-    </section>
-    <section>
-      <h2>Preguntas Frecuentes</h2>
-      <p>¿Como publico un anuncio?</p>
-      <p>¿Como contactar al vendedor?</p>
-      <p>¿Es seguro comprar aqui?</p>
-    </section>
+
+    <section class="categorias_ofertadas">
+     <h2>Categorías Ofertadas</h2>
+     <ul class="lista-categorias-ofertadas">
+      <li class="categoria-item">
+       <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
+       <p>Computadoras y Laptops</p>
+     </li>
+     <li class="categoria-item">
+      <img src="img/componentes.png" alt="Componentes">
+      <p>Componentes</p>
+    </li>
+    <li class="categoria-item">
+      <img src="img/Periféricos.png" alt="Periféricos">
+      <p>Periféricos</p>
+    </li>
+    <li class="categoria-item">
+      <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
+      <p>Celulares y Tablets</p>
+    </li>
+    <li class="categoria-item">
+      <img src="img/Redes_Conectividad.jpg" alt="Redes y Conectividad">
+      <p>Redes y Conectividad</p>
+    </li>
+    <li class="categoria-item">
+      <img src="img/servicios.jpg" alt="Servicios">
+      <p>Servicios</p>
+    </li>
+  </ul>
+</section>
+    
+<section class="anuncios_destacados">
+  <h2>Anuncios Destacados</h2>
+
+  <article class="anuncio-item">
+    <h3>ASUS ROG Strix G15 - RTX 3060</h3>
+    <img src="img/laptop_gamer.jpg" alt="Laptop Gamer ASUS ROG">
+    <button type="button">Ver Más</button>
+  </article>
+
+  <article class="anuncio-item">
+    <h3>iPhone 13 Pro Max - 256GB</h3>
+    <img src="img/iphone13pro.jpg" alt="iPhone 13 Pro Max">
+    <button type="button">Ver Más</button>
+  </article>
+
+  <article class="anuncio-item">
+    <h3>NVIDIA RTX 3070 Ti</h3>
+    <img src="img/rtx3070ti.jpg" alt="Tarjeta Gráfica RTX 3070 Ti">
+    <button type="button">Ver Más</button>
+  </article>
+</section>
   </main>
+  <footer class="footer">
+  <section class="preguntas-frecuentes">
+    <h4>Preguntas Frecuentes</h4>
+    <ul>
+      <li>¿Cómo publico un anuncio?</li>
+      <li>¿Cómo contactar al vendedor?</li>
+      <li>¿Es seguro comprar aquí?</li>
+    </ul>
+  </section>
+
+  <div class="footer-info">
+    <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
 </body>
 </html>
