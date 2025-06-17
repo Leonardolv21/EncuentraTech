@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Listado de Anuncios</title>
-    <link rel="stylesheet" href="/frontend/css/all.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
 
-  <link rel="stylesheet" href="css/listado_anuncios/header.css">
+  <link rel="stylesheet" href="css/listado_anuncio_usuario/header.css">
   <link rel="stylesheet" href="css/listado_anuncios/listado-anuncios.css">
   <link rel="stylesheet" href="css/listado_anuncios/footer.css">
 </head>
@@ -14,7 +14,7 @@
   <main class="main-container">
     <header class="header">
       <div class="centrar-logo">
-        <h1 class="logo"><a href="index.html">EncuentraTech</a></h1>
+        <h1 class="logo"><a href="inicio-usuario.html">EncuentraTech</a></h1>
       </div>
       <nav class="menu">
         <label for="menu-switch" class="menu-mobile-label">
@@ -23,8 +23,15 @@
         </label>  
         <input id="menu-switch" type="checkbox">
         <ul>
-          <li><a href="#">Registrarse</a></li>
-          <li><a href="#">Iniciar Sesion</a></li>
+         <li><a href="#">Publicar Anuncio</a></li>
+         <li class="submenu-toggle">
+           <input type="checkbox" id="submenu-switch" hidden>
+           <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
+            <div class="submenu">
+             <a href="chat-compras.html">Mis Compras</a>
+             <a href="chat-ventas.html">Mis Ventas</a>
+            </div>
+         </li>
         </ul>  
       </nav>
     </header>

@@ -5,33 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagina Principal</title>
   
-  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
   
-  <link rel="stylesheet" href="./css/pagina_principal_visitante/inicio-visitante.css">
-  <link rel="stylesheet" href="./css/pagina_principal_visitante/header.css">
-  <link rel="stylesheet" href="./css/pagina_principal_visitante/categorias_destacadas.css">
-  <link rel="stylesheet" href="./css/pagina_principal_visitante/categorias_ofertadas.css">
-  <link rel="stylesheet" href="./css/pagina_principal_visitante/anuncios_destacados.css">
-  <link rel="stylesheet" href="./css/pagina_principal_visitante/footer.css">
+  <link rel="stylesheet" href="css/pagina_principal_usuario/inicio-usuario.css">
+  <link rel="stylesheet" href="css/pagina_principal_usuario/header.css">
+  <link rel="stylesheet" href="css/pagina_principal_usuario/anuncios_destacados.css">
+  <link rel="stylesheet" href="css/pagina_principal_usuario/categorias_destacadas.css">
+  <link rel="stylesheet" href="css/pagina_principal_usuario/categorias_ofertadas.css">
+  <link rel="stylesheet" href="css/pagina_principal_usuario/footer.css">
 </head>
 <body>
   <main class="main-container">
 
     <header class="header">
       <div class="centrar-logo">
-        <h1 class="logo"><a href="index.html">EncuentraTech</a></h1>
+        <h1 class="logo"><a href="inicio-usuario.html">EncuentraTech</a></h1>
       </div>
       <nav class="menu">
         <label for="menu-switch" class="menu-mobile-label">
           <i class="fa-solid fa-bars"></i>
           Menu
-        </label>  
-        <input id="menu-switch" type="checkbox">
-        <ul>
-          <li><a href="lista-anuncio.html">Anuncios</a></li>
-          <li><a href="registro.html">Registrarse</a></li>
-          <li><a href="inicio-sesion.html">Iniciar Sesion</a></li>
-        </ul>  
+          
+        </label> 
+       <input id="menu-switch" type="checkbox">
+       <ul>
+         <li><a href="#">Anuncios</a></li>
+         <li><a href="#">Publicar Anuncio</a></li>
+         <li class="submenu-toggle">
+           <input type="checkbox" id="submenu-switch" hidden>
+           <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
+            <div class="submenu">
+             <a href="chat-compras.html">Mis Compras</a>
+             <a href="chat-ventas.html">Mis Ventas</a>
+            </div>
+         </li>
+        </ul>
       </nav>
     </header>
 

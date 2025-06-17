@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Ventas</title>
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/chat-ventas/header.css">
+  <link rel="stylesheet" href="css/chat-ventas/footer.css">
+  <link rel="stylesheet" href="css/chat-ventas/ventas.css">
+</head>
+<body>
+  <header class="header">
+    <div class="centrar-logo">
+      <h1 class="logo"><a href="inicio-usuario.html">EncuentraTech</a></h1>
+    </div>
+    <nav class="menu">
+      <label for="menu-switch" class="menu-mobile-label">
+        <i class="fa-solid fa-bars"></i> Menu
+      </label>
+      <input id="menu-switch" type="checkbox">
+      <ul>
+        <li><a href="#">Publicar Anuncio</a></li>
+        <li class="submenu-toggle">
+          <input type="checkbox" id="submenu-switch" hidden>
+          <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="submenu">
+            <a href="chat-compras.html">Mis Compras</a>
+            <a href="chat-ventas.html">Mis Ventas</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="chat-list" id="chat-list">
+      <h2>Mis Ventas</h2>
+      <div class="chat-item" onclick="abrirChat('dell-inspiron')">
+        <img src="img/Laptop-Dell-Inspiron-14.jpg" alt="Laptop Dell Inspiron 14">
+        <div class="chat-info">
+          <h3>Laptop Dell Inspiron 14</h3>
+          <p class="vendedor">Vendedor: María</p>
+          <p class="mensaje">Hola, ¿Sigue disponible?</p>
+        </div>
+      </div>
+
+      <div class="chat-item" onclick="abrirChat('dell-xps')">
+        <img src="img/Dellxps15.jpg" alt="Dell XPS 15">
+        <div class="chat-info">
+          <h3>Dell XPS 15</h3>
+          <p class="vendedor">Vendedor: María</p>
+          <p class="mensaje">¡Hola!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chat-window" id="chat-window">
+      <button onclick="volverLista()" class="volver"> Volver</button>
+      <div class="chat-header">
+        <strong>María</strong>
+        <span class="titulo-anuncio">Laptop Dell Inspiron 14</span>
+      </div>
+      <div class="chat-contenido">
+        <div class="mensaje-vendedor">
+          <p>¡Hola! ¿Sigue disponible?</p>
+          <span class="hora">10:45</span>
+        </div>
+        <div class="mensaje-comprador">
+          <p>Hola, sí. Aún está disponible.</p>
+          <span class="hora">10:47</span>
+        </div>
+      </div>
+      <form class="chat-form">
+        <input type="text" placeholder="Escribe tu mensaje">
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <section class="preguntas-frecuentes">
+      <h4>Preguntas Frecuentes</h4>
+      <ul>
+        <li>¿Cómo publico un anuncio?</li>
+        <li>¿Cómo contactar al vendedor?</li>
+        <li>¿Es seguro comprar aquí?</li>
+      </ul>
+    </section>
+    <div class="footer-info">
+      <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/chat-compras.js"></script>
+</body>
+</html>

@@ -1,4 +1,12 @@
-
+html,body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
 .header {
 background-color: #2C5559;
 display: flex;
@@ -89,6 +97,42 @@ align-items: center;
 }
 
 
+
+.submenu {
+  display: none;
+  margin-top: 6px;
+  padding-left: 0;
+}
+
+#submenu-switch:checked ~ .submenu {
+  display: block;
+}
+
+.submenu-label {
+  color: white;
+  font-family: 'Bebas', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  display: block;
+  padding: 10px;
+  border: 1px solid #fff;
+  text-align: center;
+  background-color: transparent;
+}
+
+.submenu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 10px;
+  display: block;
+  text-align: center;
+  border: 1px solid #fff;
+  margin-top: 4px;
+}
+
+
+
+
 @media (min-width: 768px){
   .header{
     display: flex;
@@ -119,7 +163,6 @@ align-items: center;
   padding: 0;
 }
 
-
   .menu #menu-switch:checked ~ ul{
     display: flex;
   }
@@ -129,5 +172,48 @@ align-items: center;
    border-width: 0px;
    text-align: left;
    color: white;
+   position: relative;
+   margin-left: 20px;
   }
+
+
+  .submenu-label {
+    border: none;
+    padding: 10px 0;
+  }
+
+  .submenu {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    background-color: #2C5559;
+    padding: 0;
+    min-width: 150px;
+    display: none;
+    z-index: 100;
+  }
+
+  /* Mostrar el submenu al pasar el mouse sobre el li */
+  .submenu-toggle:hover .submenu {
+    display: block;
+
+  }
+  
+  #submenu-switch {
+    display: none;
+  }
+
+  .submenu a {
+    border: none;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    font-family: 'Bebas', sans-serif;
+    background-color: #2C5559;
+  }
+
+  .submenu a:hover {
+    background-color: #3a6c70;
+  }
+
 }

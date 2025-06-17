@@ -1,3 +1,8 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .header {
 background-color: #2C5559;
@@ -18,6 +23,10 @@ margin-bottom: 0px;
 margin-left: 20px;
 }
 
+a{
+  text-decoration: none;
+  color: white;
+}
 
 .menu {
 position: relative;
@@ -52,6 +61,7 @@ align-items: center;
 }
 
 
+
 .menu ul {
   list-style: none;
   margin: 0;
@@ -60,7 +70,7 @@ align-items: center;
   position: fixed;
   top: 0;
   right: 0;
-  width: 70%;               
+  width: 70%;            
   height: 100vh;
   transform: translateX(100%);  
   transition: transform 0.3s ease-in-out;
