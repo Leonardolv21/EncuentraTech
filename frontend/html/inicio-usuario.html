@@ -5,33 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagina Principal</title>
   
-  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="../css/all.min.css">
   
-  <link rel="stylesheet" href="./css/all/all.css">
-  <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/inicio-visitante.css">
-  <link rel="stylesheet" href="./css/style_visitante/header.css">
-  <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/categorias_destacadas.css">
-  <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/categorias_ofertadas.css">
-  <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/anuncios_destacados.css">
-  <link rel="stylesheet" href="./css/style_visitante/footer.css">
+  <link rel="stylesheet" href="../css/style_usuario/pagina_principal_usuario/inicio-usuario.css">
+  <link rel="stylesheet" href="../css/style_usuario/pagina_principal_usuario/header.css">
+  <link rel="stylesheet" href="../css/style_usuario/pagina_principal_usuario/anuncios_destacados.css">
+  <link rel="stylesheet" href="../css/style_usuario/pagina_principal_usuario/categorias_destacadas.css">
+  <link rel="stylesheet" href="../css/style_usuario/pagina_principal_usuario/categorias_ofertadas.css">
+  <link rel="stylesheet" href="../css/style_usuario/pagina_principal_usuario/footer.css">
 </head>
 <body>
   <main class="main-container">
+
     <header class="header">
       <div class="centrar-logo">
-        <h1 class="logo"><a href="index.html">EncuentraTech</a></h1>
+        <h1 class="logo"><a href="inicio-usuario.html">EncuentraTech</a></h1>
       </div>
       <nav class="menu">
         <label for="menu-switch" class="menu-mobile-label">
           <i class="fa-solid fa-bars"></i>
           Menu
-        </label>  
-        <input id="menu-switch" type="checkbox">
-        <ul>
-          <li><a href="html/lista-anuncio.html">Anuncios</a></li>
-          <li><a href="html/registro.html">Registrarse</a></li>
-          <li><a href="html/inicio-sesion.html">Iniciar Sesion</a></li>
-        </ul>  
+          
+        </label> 
+       <input id="menu-switch" type="checkbox">
+       <ul>
+         <li><a href="../html/lista-anuncio-usuario.html">Anuncios</a></li>
+         <li><a href="#">Publicar Anuncio</a></li>
+         <li class="submenu-toggle">
+           <input type="checkbox" id="submenu-switch" hidden>
+           <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
+            <div class="submenu">
+             <a href="chat-compras.html">Mis Compras</a>
+             <a href="chat-ventas.html">Mis Ventas</a>
+            </div>
+         </li>
+        </ul>
       </nav>
     </header>
 
@@ -44,15 +52,15 @@
       <h2>Categorías Destacadas</h2>
       <ul class="lista-categorias-destacadas">
        <li class="categoria-item">
-        <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
+        <img src="../img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
          <p>Computadoras y Laptops</p>
        </li>
        <li class="categoria-item">
-        <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
+        <img src="../img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
          <p>Celulares y Tablets</p>
        </li>
        <li class="categoria-item">
-        <img src="img/componentes.png" alt="Componentes">
+        <img src="../img/componentes.png" alt="Componentes">
          <p>Componentes</p>
        </li>
       </ul>
@@ -62,27 +70,27 @@
      <h2>Categorías Ofertadas</h2>
      <ul class="lista-categorias-ofertadas">
       <li class="categoria-item">
-       <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
+       <img src="../img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
        <p>Computadoras y Laptops</p>
      </li>
      <li class="categoria-item">
-      <img src="img/componentes.png" alt="Componentes">
+      <img src="../img/componentes.png" alt="Componentes">
       <p>Componentes</p>
      </li>
      <li class="categoria-item">
-      <img src="img/Periféricos.png" alt="Periféricos">
+      <img src="../img/Periféricos.png" alt="Periféricos">
       <p>Periféricos</p>
      </li>
      <li class="categoria-item">
-       <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
+       <img src="../img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
       <p>Celulares y Tablets</p>
      </li>
      <li class="categoria-item">
-      <img src="img/Redes_Conectividad.jpg" alt="Redes y Conectividad">
+      <img src="../img/Redes_Conectividad.jpg" alt="Redes y Conectividad">
       <p>Redes y Conectividad</p>
      </li>
      <li class="categoria-item">
-      <img src="img/servicios.jpg" alt="Servicios">
+      <img src="../img/servicios.jpg" alt="Servicios">
       <p>Servicios</p>
      </li>
     </ul>
@@ -94,20 +102,20 @@
   <div class="anuncios_destacados">
    <article class="anuncio-item">
     <h3>Laptop Dell XPs 15</h3>
-    <img src="img/Dellxps15.jpg" alt="Laptop dell XPs 15">
-    <button type="button"><a href="html/detalle-anuncio.html">Ver Más</a></button>
+    <img src="../img/Dellxps15.jpg" alt="Laptop dell XPs 15">
+    <button type="button"><a href="detalle-anuncio.html">Ver Más</a></button>
    </article>
 
    <article class="anuncio-item">
     <h3>Macbook Pro</h3>
-    <img src="img/MacBook_Pro.jpg" alt="Macbook Pro">
-    <button type="button"><a href="html/detalle-anuncio2.html">Ver Más</a></button>
+    <img src="../img/MacBook_Pro.jpg" alt="Macbook Pro">
+    <button type="button"><a href="detalle-anuncio2.html">Ver Más</a></button>
    </article>
 
    <article class="anuncio-item">
     <h3>Ryzen 5 5600X</h3>
-    <img src="img/ryzen5.jpg" alt="Ryzen 5 5600X">
-    <button type="button"><a href="html/detalle-anuncio3.html">Ver Más</a></button>
+    <img src="../img/ryzen5.jpg" alt="Ryzen 5 5600X">
+    <button type="button"><a href="detalle-anuncio3.html">Ver Más</a></button>
    </article>
   </div>
 </section>
