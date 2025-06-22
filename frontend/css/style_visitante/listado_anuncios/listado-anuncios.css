@@ -6,7 +6,7 @@
 
 
 
-h1 {
+h2 {
   font-size: 24px;
   margin-top: 12px;
   margin-left: 12px;
@@ -95,9 +95,10 @@ button {
   cursor: pointer;
 }
 
+
 .contenido-centro {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 0 12px;
 }
 

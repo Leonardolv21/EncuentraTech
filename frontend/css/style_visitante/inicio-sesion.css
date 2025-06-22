@@ -165,7 +165,17 @@ form button {
  border-radius: 4px;
  cursor: pointer;
 }
+#error-general{
+  color:green;
+}
 
+.msg-error {
+  color: red;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
 
 
 #menu-switch:checked ~ ul {

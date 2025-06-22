@@ -4,12 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagina Principal</title>
-  
   <link rel="stylesheet" href="./css/all.min.css">
-  
   <link rel="stylesheet" href="./css/all/all.css">
   <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/inicio-visitante.css">
-  <link rel="stylesheet" href="./css/style_visitante/header.css">
+  <link rel="stylesheet" href="./css/header-comun.css">
   <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/categorias_destacadas.css">
   <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/categorias_ofertadas.css">
   <link rel="stylesheet" href="./css/style_visitante/pagina_principal_visitante/anuncios_destacados.css">
@@ -17,23 +15,7 @@
 </head>
 <body>
   <main class="main-container">
-    <header class="header">
-      <div class="centrar-logo">
-        <h1 class="logo"><a href="index.html">EncuentraTech</a></h1>
-      </div>
-      <nav class="menu">
-        <label for="menu-switch" class="menu-mobile-label">
-          <i class="fa-solid fa-bars"></i>
-          Menu
-        </label>  
-        <input id="menu-switch" type="checkbox">
-        <ul>
-          <li><a href="html/lista-anuncio.html">Anuncios</a></li>
-          <li><a href="html/registro.html">Registrarse</a></li>
-          <li><a href="html/inicio-sesion.html">Iniciar Sesion</a></li>
-        </ul>  
-      </nav>
-    </header>
+    <div id="header-container"></div>
 
     <section class="bienvenida">
       <h2>Bienvenido a EncuentraTech</h2>
@@ -43,89 +25,89 @@
     <section class="categorias_destacadas">
       <h2>Categorías Destacadas</h2>
       <ul class="lista-categorias-destacadas">
-       <li class="categoria-item">
-        <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
-         <p>Computadoras y Laptops</p>
-       </li>
-       <li class="categoria-item">
-        <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
-         <p>Celulares y Tablets</p>
-       </li>
-       <li class="categoria-item">
-        <img src="img/componentes.png" alt="Componentes">
-         <p>Componentes</p>
-       </li>
+        <li class="categoria-item">
+          <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
+          <p>Computadoras y Laptops</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
+          <p>Celulares y Tablets</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/componentes.png" alt="Componentes">
+          <p>Componentes</p>
+        </li>
       </ul>
     </section>
 
     <section class="categorias_ofertadas">
-     <h2>Categorías Ofertadas</h2>
-     <ul class="lista-categorias-ofertadas">
-      <li class="categoria-item">
-       <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
-       <p>Computadoras y Laptops</p>
-     </li>
-     <li class="categoria-item">
-      <img src="img/componentes.png" alt="Componentes">
-      <p>Componentes</p>
-     </li>
-     <li class="categoria-item">
-      <img src="img/Periféricos.png" alt="Periféricos">
-      <p>Periféricos</p>
-     </li>
-     <li class="categoria-item">
-       <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
-      <p>Celulares y Tablets</p>
-     </li>
-     <li class="categoria-item">
-      <img src="img/Redes_Conectividad.jpg" alt="Redes y Conectividad">
-      <p>Redes y Conectividad</p>
-     </li>
-     <li class="categoria-item">
-      <img src="img/servicios.jpg" alt="Servicios">
-      <p>Servicios</p>
-     </li>
-    </ul>
-</section>
-    
-<section class="anuncios_destacados_section">
-  <h2>Anuncios Destacados</h2>
+      <h2>Categorías Ofertadas</h2>
+      <ul class="lista-categorias-ofertadas">
+        <li class="categoria-item">
+          <img src="img/computadoras_laptops.jpg" alt="Computadoras y Laptops">
+          <p>Computadoras y Laptops</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/componentes.png" alt="Componentes">
+          <p>Componentes</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/Periféricos.png" alt="Periféricos">
+          <p>Periféricos</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/Celulares_Tablets.jpg" alt="Celulares y Tablets">
+          <p>Celulares y Tablets</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/Redes_Conectividad.jpg" alt="Redes y Conectividad">
+          <p>Redes y Conectividad</p>
+        </li>
+        <li class="categoria-item">
+          <img src="img/servicios.jpg" alt="Servicios">
+          <p>Servicios</p>
+        </li>
+      </ul>
+    </section>
 
-  <div class="anuncios_destacados">
-   <article class="anuncio-item">
-    <h3>Laptop Dell XPs 15</h3>
-    <img src="img/Dellxps15.jpg" alt="Laptop dell XPs 15">
-    <button type="button"><a href="html/detalle-anuncio.html">Ver Más</a></button>
-   </article>
+    <section class="anuncios_destacados_section">
+      <h2>Anuncios Destacados</h2>
+      <div class="anuncios_destacados">
+        <article class="anuncio-item">
+          <h3>Laptop Dell XPs 15</h3>
+          <img src="img/Dellxps15.jpg" alt="Laptop dell XPs 15">
+          <button type="button"><a href="detalle-anuncio.html?id=1">Ver Más</a></button>
+        </article>
 
-   <article class="anuncio-item">
-    <h3>Macbook Pro</h3>
-    <img src="img/MacBook_Pro.jpg" alt="Macbook Pro">
-    <button type="button"><a href="html/detalle-anuncio2.html">Ver Más</a></button>
-   </article>
+        <article class="anuncio-item">
+          <h3>Macbook Pro</h3>
+          <img src="img/MacBook_Pro.jpg" alt="Macbook Pro">
+          <button type="button"><a href="detalle-anuncio.html?id=2">Ver Más</a></button>
+        </article>
 
-   <article class="anuncio-item">
-    <h3>Ryzen 5 5600X</h3>
-    <img src="img/ryzen5.jpg" alt="Ryzen 5 5600X">
-    <button type="button"><a href="html/detalle-anuncio3.html">Ver Más</a></button>
-   </article>
-  </div>
-</section>
+        <article class="anuncio-item">
+          <h3>Ryzen 5 5600X</h3>
+          <img src="img/ryzen5.jpg" alt="Ryzen 5 5600X">
+          <button type="button"><a href="detalle-anuncio.html?id=3">Ver Más</a></button>
+        </article>
+      </div>
+    </section>
   </main>
-<footer class="footer">
-  <section class="preguntas-frecuentes">
-    <h4>Preguntas Frecuentes</h4>
-    <ul>
-      <li>¿Cómo publico un anuncio?</li>
-      <li>¿Cómo contactar al vendedor?</li>
-      <li>¿Es seguro comprar aquí?</li>
-    </ul>
-  </section>
 
-  <div class="footer-info">
-    <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
-  </div>
-</footer>
+  <footer class="footer">
+    <section class="preguntas-frecuentes">
+      <h4>Preguntas Frecuentes</h4>
+      <ul>
+        <li>¿Cómo publico un anuncio?</li>
+        <li>¿Cómo contactar al vendedor?</li>
+        <li>¿Es seguro comprar aquí?</li>
+      </ul>
+    </section>
 
+    <div class="footer-info">
+      <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script src="js/header.js"></script>
 </body>
 </html>

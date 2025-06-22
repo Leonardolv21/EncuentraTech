@@ -24,19 +24,24 @@
           <li><a href="../html/inicio-sesion.html">Iniciar Sesion</a></li>
         </ul>
       </nav>
-    </header>
+   </header>
   <main class="main-container">
-    <h2>Iniciar Sesion</h2>
-    <form>
-      <label>Correo electronico</label>
-      <input type="email">
-      <label>Contraseña</label>
-      <input type="password">
-      <button type="submit">
-        Iniciar sesión
-      </button>
-    </form>
-  </main>
+   <h2>Iniciar Sesión</h2>
+  <form id="form-login">
+  <label for="correo">Correo electrónico</label>
+  <input type="email" id="correo">
+  <div class="msg-error" id="error-correo"></div>
+
+  <label for="contrasena">Contraseña</label>
+  <input type="password" id="contrasena">
+  <div class="msg-error" id="error-contrasena"></div>
+
+  <div class="msg-error" id="error-general"></div> <!-- Aquí se mostrará éxito o error global -->
+
+  <button type="submit">Iniciar sesión</button>
+</form>
+
+</main>
   <footer class="footer">
   <section class="preguntas-frecuentes">
     <h4>Preguntas Frecuentes</h4>
@@ -51,5 +56,6 @@
     <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
   </div>
 </footer>
+<script src="js/login.js"></script>
 </body>
 </html>

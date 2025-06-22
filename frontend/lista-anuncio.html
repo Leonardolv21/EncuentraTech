@@ -4,33 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Listado de Anuncios</title>
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/all/all.css">
-  <link rel="stylesheet" href="../css/style_visitante/header.css">
-  <link rel="stylesheet" href="../css/style_visitante/listado_anuncios/listado-anuncios.css">
-  <link rel="stylesheet" href="../css/style_visitante/footer.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/all/all.css">
+  <link rel="stylesheet" href="css/header-comun.css">
+  <link rel="stylesheet" href="css/style_visitante/listado_anuncios/listado-anuncios.css">
+  <link rel="stylesheet" href="css/style_visitante/footer.css">
 </head>
 <body>
   <main class="main-container">
-    <header class="header">
-      <div class="centrar-logo">
-        <h1 class="logo"><a href="../index.html">EncuentraTech</a></h1>
-      </div>
-      <nav class="menu">
-        <label for="menu-switch" class="menu-mobile-label">
-          <i class="fa-solid fa-bars"></i>
-          Menu
-        </label>  
-        <input id="menu-switch" type="checkbox">
-        <ul>
-          <li><a href="../html/registro.html">Registrarse</a></li>
-          <li><a href="../html/inicio-sesion.html">Iniciar Sesion</a></li>
-        </ul>  
-      </nav>
-    </header>
-     <div class="contenido-centro">
-
-   <h1>Listado de anuncios</h1>
+     <div id="header-container"></div>
+   <div class="contenido-centro">
+   <h2>Listado de anuncios</h2>
 
     <section class="busqueda-anuncios">
    <input type="text" class="input-busqueda" placeholder="🔍 Buscar anuncios">
@@ -52,7 +36,7 @@
       <h3>Laptop Dell XPs 15</h3>
       <p class="precio">Bs. 3500</p>
       <p class="autor">Publicado por : Juan Perez</p>
-      <button><a href="../html/detalle-anuncio.html">Ver detalle</a></button>
+      <button><a href="detalle-anuncio.html?id=5">Ver detalle</a></button>
     </div>
    </article>
 
@@ -267,18 +251,19 @@
    </div>
   </main>
    <footer class="footer">
-  <section class="preguntas-frecuentes">
-    <h4>Preguntas Frecuentes</h4>
-    <ul>
-      <li>¿Cómo publico un anuncio?</li>
-      <li>¿Cómo contactar al vendedor?</li>
-      <li>¿Es seguro comprar aquí?</li>
-    </ul>
-  </section>
+     <section class="preguntas-frecuentes">
+       <h4>Preguntas Frecuentes</h4>
+       <ul>
+         <li>¿Cómo publico un anuncio?</li>
+         <li>¿Cómo contactar al vendedor?</li>
+         <li>¿Es seguro comprar aquí?</li>
+       </ul>
+     </section>
 
   <div class="footer-info">
     <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
   </div>
-</footer>
+ </footer>
+ <script src="js/header.js"></script>
 </body>
 </html>

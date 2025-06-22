@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración de Anuncios</title>
+  
+  <link rel="stylesheet" href="../css/all.min.css">
+  <link rel="stylesheet" href="../css/all/all.css">
+  <link rel="stylesheet" href="../css/style_usuario/header.css">
+  <link rel="stylesheet" href="../css/style_usuario/footer.css">
+  <link rel="stylesheet" href="../css/style_usuario/administracion-anuncios.css">
+</head>
+<body>
+  <div id="header-container"></div>
+
+<main class="main-container">
+ <h2>Mis Anuncios</h2>
+ <button id="btn-crear">Crear anuncio</button>
+<!-- AQUI VA -->
+<div id="lista-anuncios"></div>
+
+ <!-- MODAL para nuevo anuncio -->
+ <div class="modal" id="modal-anuncio">
+   <div class="modal-contenido">
+     <h3>Nuevo Anuncio</h3>
+     <form id="form-anuncio" enctype="multipart/form-data">
+  <label for="titulo">Título del anuncio</label>
+  <input type="text" id="titulo" name="titulo">
+  <span class="msg-error" id="error-titulo"></span>
+
+  <label for="descripcion">Descripción</label>
+  <textarea id="descripcion" name="descripcion"></textarea>
+  <span class="msg-error" id="error-descripcion"></span>
+
+  <label for="precio">Precio (Bs)</label>
+  <input type="number" id="precio" name="precio" min="1" step="any">
+  <span class="msg-error" id="error-precio"></span>
+
+  <label for="categoria">Categoría</label>
+  <select id="categoria" name="categoria">
+    <option value="">Seleccione una categoría</option>
+    <option value="1">Laptops</option>
+    <option value="2">Gaming</option>
+    <option value="3">Accesorios</option>
+    <!-- Agrega más categorías si es necesario -->
+  </select>
+  <span class="msg-error" id="error-categoria"></span>
+
+  <label for="imagenes">Imágenes</label>
+  <input type="file" id="imagenes" name="imagenes" accept="image/*" multiple>
+  <span class="msg-error" id="error-imagenes"></span>
+
+  <div class="botones">
+    <button type="submit" id="btn-publicar">Publicar</button>
+    <button type="button" id="btn-cancelar">Cancelar</button>
+  </div>
+  <span class="msg-error" id="error-general"></span>
+ </form>
+  </div>
+  </div>
+  </main>
+
+
+<footer class="footer">
+  <section class="preguntas-frecuentes">
+    <h4>Preguntas Frecuentes</h4>
+    <ul>
+      <li>¿Cómo publico un anuncio?</li>
+      <li>¿Cómo contactar al vendedor?</li>
+      <li>¿Es seguro comprar aquí?</li>
+    </ul>
+  </section>
+
+  <div class="footer-info">
+    <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
+  </div>
+</footer>
+<script src="../js/administracion-anuncios.js"></script>
+<script src="js/header.js"></script>
+</body>
+</html>

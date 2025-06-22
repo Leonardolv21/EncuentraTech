@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
     const usuarioExistente = await authRepository.buscarPorCorreo(correo);
 
     if (usuarioExistente) {
-      return res.status(409).json({ mensaje: 'El correo ya está registrado' });
+      return res.status(409).json({ mensaje: 'El correo ya está registrado'});
     }
 
     await authRepository.insertarUsuario(nombre, correo, contrasena);
@@ -42,10 +42,17 @@ exports.login = async (req, res) => {
       return res.status(401).json({ mensaje: 'Correo o contraseña incorrectos' });
     }
 
-    // Opcional: eliminar contraseña del objeto a devolver
+    // Elimina contraseña antes de enviar la respuesta
     delete usuario.contrasena;
 
-    res.json(usuario); // puedes devolver también solo el nombre o id
+    res.json({
+      mensaje: 'Inicio de sesión exitoso',
+      usuario: {
+        id: usuario.id,
+        nombre: usuario.nombre,
+        correo: usuario.correo
+      }
+    });
 
   } catch (error) {
     console.error('Error al iniciar sesión:', error);

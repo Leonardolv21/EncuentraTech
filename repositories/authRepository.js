@@ -4,7 +4,7 @@ let connection = null;
 
 const getConnection = async () => {
   if (connection === null) {
-    connection = await dbConnection(); // ← debe retornar un Pool
+    connection = await dbConnection(); 
   }
   return connection;
 };
