@@ -5,15 +5,45 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("form-anuncio");
   const errorGeneral = document.getElementById("error-general");
   const contenedor = document.getElementById("lista-anuncios");
+  const selectCategoria = document.getElementById("categoria");
+  const inputImagenes = document.getElementById("imagenes");
+
+  let editando = false;
+  let anuncioEditandoId = null;
+  let imagenesEliminadas = [];
+
+  async function cargarCategorias() {
+    try {
+      const res = await fetch('/api/categorias');
+      const categorias = await res.json();
+
+      categorias.forEach(cat => {
+        const option = document.createElement('option');
+        option.value = cat.id;
+        option.textContent = cat.nombre;
+        selectCategoria.appendChild(option);
+      });
+    } catch (error) {
+      console.error('Error al cargar categorías:', error);
+    }
+  }
 
   btnCrear.addEventListener("click", () => {
+    editando = false;
+    anuncioEditandoId = null;
+    imagenesEliminadas = [];
     modal.style.display = "flex";
+    limpiarErrores();
+    form.reset();
+    document.getElementById("form-anuncio").querySelector("#btn-publicar").textContent = "Publicar";
+    document.getElementById("imagenes-actuales")?.remove();
   });
 
   btnCancelar.addEventListener("click", () => {
     modal.style.display = "none";
     form.reset();
     limpiarErrores();
+    document.getElementById("imagenes-actuales")?.remove();
   });
 
   function limpiarErrores() {
@@ -34,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const descripcion = document.getElementById("descripcion").value.trim();
     const precio = parseFloat(document.getElementById("precio").value);
     const categoria_id = parseInt(document.getElementById("categoria").value);
-    const imagenes = document.getElementById("imagenes").files;
+    const imagenes = inputImagenes.files;
     const usuario_id = localStorage.getItem("usuario_id");
 
     let hayError = false;
@@ -59,13 +89,13 @@ document.addEventListener("DOMContentLoaded", () => {
       hayError = true;
     }
 
-    if (!imagenes || imagenes.length === 0) {
-      document.getElementById("error-imagenes").innerHTML = "Debe seleccionar al menos una imagen";
+    if (!usuario_id) {
+      errorGeneral.innerHTML = "Debe iniciar sesión para publicar un anuncio";
       hayError = true;
     }
 
-    if (!usuario_id) {
-      errorGeneral.innerHTML = "Debe iniciar sesión para publicar un anuncio";
+    if (!editando && (!imagenes || imagenes.length === 0)) {
+      document.getElementById("error-imagenes").innerHTML = "Debe seleccionar al menos una imagen";
       hayError = true;
     }
 
@@ -83,21 +113,42 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("imagenes", img);
       }
 
-      const res = await fetch("/api/anuncios", {
-        method: "POST",
-        body: formData
-      });
+      if (editando) {
+         console.log('Se eliminarán estas URLs:', imagenesEliminadas);
+          formData.append("imagenes_eliminar", JSON.stringify(imagenesEliminadas));
+        const res = await fetch(`/api/anuncios/${anuncioEditandoId}`, {
+          method: "PUT",
+          body: formData
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      if (res.ok) {
-        errorGeneral.style.color = "green";
-        errorGeneral.innerHTML = "Anuncio publicado con éxito";
-        form.reset();
-        modal.style.display = "none";
-        cargarMisAnuncios();
+        if (res.ok) {
+          errorGeneral.style.color = "green";
+          errorGeneral.innerHTML = "Anuncio actualizado con éxito";
+          form.reset();
+          modal.style.display = "none";
+          cargarMisAnuncios();
+        } else {
+          errorGeneral.innerHTML = data.mensaje || "Error al actualizar anuncio";
+        }
       } else {
-        errorGeneral.innerHTML = data.mensaje || "Error al registrar anuncio";
+        const res = await fetch("/api/anuncios", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          errorGeneral.style.color = "green";
+          errorGeneral.innerHTML = "Anuncio publicado con éxito";
+          form.reset();
+          modal.style.display = "none";
+          cargarMisAnuncios();
+        } else {
+          errorGeneral.innerHTML = data.mensaje || "Error al registrar anuncio";
+        }
       }
     } catch (err) {
       errorGeneral.innerHTML = "Error al conectar con el servidor";
@@ -108,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario_id = localStorage.getItem("usuario_id");
 
     if (!usuario_id) {
+      console.log("No hay usuario logueado");
       errorGeneral.innerHTML = "Debe iniciar sesión para ver sus anuncios";
       return;
     }
@@ -134,21 +186,120 @@ document.addEventListener("DOMContentLoaded", () => {
           <img src="${anuncio.imagen_url || 'img/default.png'}" alt="Imagen" width="80">
           <div class="card-info">
             <strong>${anuncio.titulo}</strong><br>
-            Bs. ${anuncio.precio.toFixed(2)}
+            Bs. ${Number(anuncio.precio).toFixed(2)}
           </div>
           <div>
             <span class="badge ${estado}">${textoEstado}</span>
             <button class="btn-accion btn-toggle">${anuncio.estado ? "Deshabilitar" : "Habilitar"}</button>
-            <button class="btn-accion btn-editar">Editar</button>
+            <button class="btn-accion btn-editar" data-id="${anuncio.id}">Editar</button>
             <button class="btn-accion btn-eliminar">Eliminar</button>
           </div>
         `;
+         card.querySelector('.btn-eliminar').addEventListener('click', async () => {
+          try {
+          const res = await fetch(`/api/anuncios/${anuncio.id}`, { method: 'DELETE' });
+
+            if (res.ok) {
+              // Eliminamos la tarjeta del DOM al instante
+              card.remove();
+            } else {
+              // Si hay error, lo mostramos inline con msg-error
+              let aviso = card.querySelector('.msg-error-delete');
+              if (!aviso) {
+                aviso = document.createElement('span');
+                aviso.className = 'msg-error msg-error-delete';
+                aviso.style.display = 'block';
+                aviso.style.marginTop = '0.5rem';
+                card.appendChild(aviso);
+              }
+              const { mensaje } = await res.json();
+              aviso.textContent = mensaje || 'No se pudo eliminar';
+            }
+          } catch {
+            let aviso = card.querySelector('.msg-error-delete');
+            if (!aviso) {
+              aviso = document.createElement('span');
+              aviso.className = 'msg-error msg-error-delete';
+              aviso.style.display = 'block';
+              aviso.style.marginTop = '0.5rem';
+              card.appendChild(aviso);
+            }
+            aviso.textContent = 'Error de conexión';
+          }
+        });
+
+
+
+            // dentro de renderCard o justo después de crear card.innerHTML:
+        card.querySelector('.btn-toggle').addEventListener('click', async () => {
+        const res = await fetch(`/api/anuncios/${anuncio.id}/estado`, { method: 'PATCH' });
+          if (res.ok) {
+            cargarMisAnuncios();  // recarga sólo activos
+          } else {
+           alert('Error al cambiar estado');
+            }
+            });
+
+        card.querySelector(".btn-editar").addEventListener("click", async () => {
+          editando = true;
+          anuncioEditandoId = anuncio.id;
+          imagenesEliminadas = [];
+
+          // 1) Elimino cualquier previas imágenes-actuales que queden del último edit
+          document.getElementById("imagenes-actuales")?.remove();
+
+          // 2) Cargo los datos del anuncio
+          const res = await fetch(`/api/anuncios/detalle/${anuncio.id}`);
+          const data = await res.json();
+
+          if (!res.ok) return alert("Error al cargar anuncio para editar");
+
+          document.getElementById("titulo").value = data.titulo;
+          document.getElementById("descripcion").value = data.descripcion;
+          document.getElementById("precio").value = data.precio;
+          document.getElementById("categoria").value = data.categoria_id;
+
+          const contenedorImagenes = document.createElement("div");
+          contenedorImagenes.id = "imagenes-actuales";
+          contenedorImagenes.innerHTML = `<h4>Imágenes actuales:</h4>`;
+
+          data.imagenes.forEach((url, index) => {
+            const divImg = document.createElement("div");
+            divImg.style.display = "inline-block";
+            divImg.style.marginRight = "10px";
+
+            const img = document.createElement("img");
+            img.src = url;
+            img.alt = `Imagen ${index + 1}`;
+            img.style.width = "80px";
+
+            const btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "X";
+            btnEliminar.style.marginLeft = "5px";
+            btnEliminar.addEventListener("click", () => {
+              imagenesEliminadas.push(url);
+              divImg.remove();
+            });
+
+            divImg.appendChild(img);
+            divImg.appendChild(btnEliminar);
+            contenedorImagenes.appendChild(divImg);
+          });
+
+          form.insertBefore(contenedorImagenes, inputImagenes);
+
+          document.getElementById("btn-publicar").textContent = "Actualizar";
+          modal.style.display = "flex";
+        });
+
         contenedor.appendChild(card);
       });
     } catch (err) {
+      console.log("ERROR:", err);
       errorGeneral.innerHTML = "Error al obtener los anuncios";
     }
   }
 
+  cargarCategorias(); 
   cargarMisAnuncios();
 });

@@ -20,9 +20,19 @@ const upload = multer({ storage });
 // Ruta para crear un anuncio con imágenes
 router.post('/', upload.array('imagenes', 5), anuncioController.crearAnuncio);
 
+router.put('/:id', upload.array('imagenes', 5), anuncioController.editarAnuncio);
+// Ruta para eliminar un anuncio
+
+
+
+// PATCH para alternar estado (habilitado/deshabilitado)
+router.patch('/:id/estado', anuncioController.cambiarEstado);
+router.delete('/:id', anuncioController.eliminarAnuncio);
 router.get('/:usuarioId', anuncioController.obtenerAnunciosPorUsuario);
 
 router.get('/detalle/:id', anuncioController.obtenerAnuncioPorId);
+
+router.get('/', anuncioController.obtenerTodosLosAnuncios);
 
 
 module.exports = router;

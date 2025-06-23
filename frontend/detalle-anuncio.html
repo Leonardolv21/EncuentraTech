@@ -4,21 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalle del anuncio</title>
-    <link rel="stylesheet" href="css/all.min.css">
-
+  <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/header-comun.css">
   <link rel="stylesheet" href="css/style_visitante/footer.css">
-    <link rel="stylesheet" href="css/style_visitante/detalle_anuncio/visualizacion-anuncio.css">
+  <link rel="stylesheet" href="css/style_visitante/detalle_anuncio/visualizacion-anuncio.css">
+  
 </head>
 <body>
-   <div id="header-container"></div>
+  <div id="header-container"></div>
 
   <main class="main-container">
-  <h2>Detalle del anuncio</h2>
+    <h2>Detalle del anuncio</h2>
 
-  <section class="detalle-anuncio">
-      <img id="imagen-anuncio" src="" alt="Imagen del anuncio">
-      <div>
+    <section class="detalle-anuncio">
+      <!-- Imagen principal destacada -->
+      <div class="imagen-principal-container">
+        <img id="imagen-anuncio" src="" alt="Imagen principal del anuncio" class="imagen-principal">
+      </div>
+
+      <!-- Galería de miniaturas -->
+      <div class="galeria-imagenes" id="galeria-imagenes"></div>
+
+      <!-- Info del anuncio -->
+      <div class="info-anuncio">
         <h3 id="titulo-anuncio"></h3>
         <h3 id="precio-anuncio"></h3>
         <button>Guardar anuncio</button>
@@ -36,26 +44,26 @@
       <h1>Publicado por</h1>
       <p id="nombre-vendedor"></p>
       <p id="correo-vendedor"></p>
-      <p>📍 Ubicación: Santa Cruz, Bolivia</p> <!-- puedes hacer esto dinámico si deseas -->
+      <p>📍 Ubicación: Santa Cruz, Bolivia</p>
     </section>
   </main>
 
-    <footer class="footer">
-  <section class="preguntas-frecuentes">
-    <h4>Preguntas Frecuentes</h4>
-    <ul>
-      <li>¿Cómo publico un anuncio?</li>
-      <li>¿Cómo contactar al vendedor?</li>
-      <li>¿Es seguro comprar aquí?</li>
-    </ul>
-  </section>
+  <footer class="footer">
+    <section class="preguntas-frecuentes">
+      <h4>Preguntas Frecuentes</h4>
+      <ul>
+        <li>¿Cómo publico un anuncio?</li>
+        <li>¿Cómo contactar al vendedor?</li>
+        <li>¿Es seguro comprar aquí?</li>
+      </ul>
+    </section>
 
-  <div class="footer-info">
-    <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
-  </div>
-</footer>
- <script src="js/header.js"></script>
- <script src="js/detalle-anuncio.js"></script>
-</body>
+    <div class="footer-info">
+      <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/header.js"></script>
+  <script src="js/detalle-anuncio.js"></script>
 </body>
 </html>

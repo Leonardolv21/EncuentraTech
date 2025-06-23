@@ -49,7 +49,7 @@ exports.obtenerAnunciosPorUsuario = async (req, res) => {
     res.status(500).json({ mensaje: "Error al obtener anuncios del usuario" });
   }
 };
-exports.obtenerAnuncioPorId = async (req, res) => {
+exports.obtenerAnuncioPorId = async (req, res) => { 
   const anuncioId = parseInt(req.params.id);
 
   if (isNaN(anuncioId)) {
@@ -72,5 +72,81 @@ exports.obtenerAnuncioPorId = async (req, res) => {
     res.json(anuncio);
   } catch (error) {
     res.status(500).json({ mensaje: 'Error al obtener el anuncio por ID' });
+  }
+};
+exports.obtenerTodosLosAnuncios = async (req, res) => {
+  try {
+    const anuncios = await anuncioRepository.obtenerAnunciosConImagenesYUsuario();
+
+    // Normalizamos la URL de la imagen
+    anuncios.forEach(anuncio => {
+      if (anuncio.imagen_url) {
+        anuncio.imagen_url = '/' + anuncio.imagen_url.replace(/\\/g, '/');
+      } else {
+        anuncio.imagen_url = null;
+      }
+    });
+
+    res.json(anuncios);
+  } catch (error) {
+    console.error("Error al obtener anuncios:", error);
+    res.status(500).json({ mensaje: "Error al obtener los anuncios" });
+  }
+};
+exports.editarAnuncio = async (req, res) => {
+  const anuncioId = parseInt(req.params.id);
+  const { titulo, descripcion, precio, categoria_id } = req.body;
+  const imagenesAEliminar = JSON.parse(req.body.imagenes_eliminar || '[]');
+  console.log('>> Back recibirá estas URLs para eliminar:', imagenesAEliminar);
+
+
+  if (!titulo || !descripcion || !precio || !categoria_id || isNaN(anuncioId)) {
+    return res.status(400).json({ mensaje: "Faltan campos obligatorios o ID inválido" });
+  }
+
+  console.log('>> Van a eliminarse las URLs:', imagenesAEliminar);
+
+  try {
+    await anuncioRepository.editarAnuncio(
+      anuncioId,
+      titulo,
+      descripcion,
+      precio,
+      categoria_id,
+      req.files, 
+      imagenesAEliminar
+    );
+
+    res.json({ mensaje: "Anuncio actualizado correctamente" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Error al editar el anuncio" });
+  }
+};
+exports.eliminarAnuncio = async (req, res) => {
+  const anuncioId = parseInt(req.params.id);
+  if (isNaN(anuncioId)) {
+    return res.status(400).json({ mensaje: 'ID inválido' });
+  }
+  try {
+    await anuncioRepository.eliminarAnuncio(anuncioId);
+    res.json({ mensaje: 'Anuncio eliminado correctamente' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: 'Error al eliminar el anuncio' });
+  }
+};
+
+exports.cambiarEstado = async (req, res) => {
+  const anuncioId = parseInt(req.params.id);
+  if (isNaN(anuncioId)) {
+    return res.status(400).json({ mensaje: 'ID inválido' });
+  }
+  try {
+    const nuevoEstado = await anuncioRepository.toggleEstado(anuncioId);
+    res.json({ estado: nuevoEstado });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: 'Error al cambiar estado' });
   }
 };
