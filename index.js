@@ -9,7 +9,8 @@ const loginRouter = require('./routes/loginRouter');
 const anuncioRouter = require('./routes/anuncioRouter');
 const usuarioRouter = require('./routes/usuarioRouter');
 const categoriaRouter = require('./routes/categoriaRouter');
-
+const conversacionRouter = require('./routes/conversacionRouter');
+const mensajeRouter      = require('./routes/mensajeRouter');
 
 
 
@@ -30,6 +31,12 @@ app.use('/api/categorias', categoriaRouter);
 app.use('/api/usuarios', usuarioRouter);
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+
+
+// Asegúrate de esto _antes_ de app.listen()
+app.use('/api/conversaciones', conversacionRouter);
+app.use('/api/mensajes', mensajeRouter);
 
 
 app.listen(port, () => {
