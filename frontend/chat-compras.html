@@ -20,7 +20,7 @@
       </label>
       <input id="menu-switch" type="checkbox">
       <ul>
-        <li><a href="#">Publicar Anuncio</a></li>
+        <li><a href="administracion-anuncios.html">Publicar Anuncio</a></li>
         <li class="submenu-toggle">
           <input type="checkbox" id="submenu-switch" hidden>
           <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
@@ -36,43 +36,25 @@
   <main class="main-container">
     <section class="chat-list" id="chat-list">
       <h2>Mis Compras</h2>
-      <div class="chat-item" onclick="abrirChat('dell-inspiron')">
-        <img src="img/Laptop-Dell-Inspiron-14.jpg" alt="Laptop Dell Inspiron 14">
-        <div class="chat-info">
-          <h3>Laptop Dell Inspiron 14</h3>
-          <p class="vendedor">Vendedor: María</p>
-          <p class="mensaje">Hola, ¿Sigue disponible?</p>
-        </div>
-      </div>
-
-      <div class="chat-item" onclick="abrirChat('dell-xps')">
-        <img src="img/Dellxps15.jpg" alt="Dell XPS 15">
-        <div class="chat-info">
-          <h3>Dell XPS 15</h3>
-          <p class="vendedor">Vendedor: María</p>
-          <p class="mensaje">¡Hola!</p>
-        </div>
+      <div id="chat-list-container">
+        <!-- Los elementos del chat se cargarán dinámicamente aquí -->
       </div>
     </section>
 
     <section class="chat-window" id="chat-window">
       <button onclick="volverLista()" class="volver"> Volver</button>
       <div class="chat-header">
-        <strong>María</strong>
-        <span class="titulo-anuncio">Laptop Dell Inspiron 14</span>
-      </div>
-      <div class="chat-contenido">
-        <div class="mensaje-comprador">
-          <p>¡Hola! ¿Sigue disponible?</p>
-          <span class="hora">10:45</span>
-        </div>
-        <div class="mensaje-vendedor">
-          <p>Hola, sí. Aún está disponible.</p>
-          <span class="hora">10:47</span>
+        <img id="chat-anuncio-imagen" src="" alt="Imagen del Anuncio" style="width: 50px; height: 50px; margin-right: 10px;">
+        <div>
+          <strong id="nombre-otro-participante"></strong>
+          <span id="chat-anuncio-titulo"></span>
         </div>
       </div>
-      <form class="chat-form">
-        <input type="text" placeholder="Escribe tu mensaje">
+      <div class="chat-contenido" id="chat-contenido">
+        <!-- Los mensajes se cargarán dinámicamente aquí -->
+      </div>
+      <form class="chat-form" id="form-enviar-mensaje">
+        <input type="text" id="input-mensaje" placeholder="Escribe tu mensaje">
         <button type="submit">Enviar</button>
       </form>
     </section>
@@ -95,3 +77,4 @@
   <script src="js/chat-compras.js"></script>
 </body>
 </html>
+

@@ -33,8 +33,6 @@ app.use('/api/usuarios', usuarioRouter);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
-
-// Asegúrate de esto _antes_ de app.listen()
 app.use('/api/conversaciones', conversacionRouter);
 app.use('/api/mensajes', mensajeRouter);
 

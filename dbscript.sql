@@ -36,7 +36,7 @@ CREATE TABLE anuncios_guardados (
     usuario_id INT NOT NULL REFERENCES usuarios(id) ON DELETE CASCADE,
     anuncio_id INT NOT NULL REFERENCES anuncios(id) ON DELETE CASCADE,
     fecha_guardado DATE NOT NULL,
-    UNIQUE (usuario_id, anuncio_id) 
+    UNIQUE (usuario_id, anuncio_id)  -- evitar duplicados
 );
 
 
@@ -58,6 +58,7 @@ CREATE TABLE mensajes (
 
 
 select * from usuarios u ;
+
 select * from conversaciones c ;
 select * from anuncios a ;
 select * from categorias c ;
@@ -84,56 +85,58 @@ INSERT INTO categorias (nombre) VALUES
 INSERT INTO conversaciones (anuncio_id, anunciante_id, interesado_id) VALUES 
 (2, 3, 4);
 
+-- Mensaje del comprador (interesado_id = 4)
 INSERT INTO mensajes (contenido, fecha_hora, conversacion_id, emisor_id) VALUES 
 ('Hola, ¿la laptop sigue disponible?', NOW(), 2, 4);
 
-
+-- Respuesta del vendedor (anunciante_id = 3)
 INSERT INTO mensajes (contenido, fecha_hora, conversacion_id, emisor_id) VALUES 
 ('¡Hola! Sí, aún la tengo disponible.', NOW(), 2, 3);
 
-
+-- Mensaje del comprador
 INSERT INTO mensajes (contenido, fecha_hora, conversacion_id, emisor_id) VALUES 
 ('¿Podrías enviarme más fotos?', NOW(), 2, 4);
 
-
+-- Respuesta del vendedor
 INSERT INTO mensajes (contenido, fecha_hora, conversacion_id, emisor_id) VALUES 
 ('Claro, te las envío enseguida.', NOW(), 2, 3);
 
-
+-- Categoría 1: Computadoras y Laptop
 INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, usuario_id, categoria_id) VALUES
 ('Macbook Pro', 'Vendo Macbook Pro con chip M1, excelente estado, ideal para trabajo y diseño.', 6200, TRUE, '2025-06-22', 1, 1),
 ('ASUS Zenbook 14', 'Ultrabook ligero, pantalla nítida, gran rendimiento. Muy poco uso.', 4200, TRUE, '2025-06-22', 3, 1),
 ('Laptop Lenovo ThinkPad', 'Laptop Lenovo ThinkPad, core i5, 8GB RAM, batería duradera, lista para trabajar.', 3400, TRUE, '2025-06-22', 2, 1),
 ('Laptop HP Pavilion', 'HP Pavilion 14”, 12GB RAM, muy rápida y en excelente estado. Ideal para estudiantes.', 3600, TRUE, '2025-06-22', 4, 1);
 
-
+-- Categoría 2: Componentes
 INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, usuario_id, categoria_id) VALUES
 ('Ryzen 5 5600X', 'Procesador Ryzen 5 con 6 núcleos y 12 hilos, ideal para gamers o editores.', 950, TRUE, '2025-06-22', 2, 2),
 ('SSD Kingston 1TB', 'Vendo SSD 1TB, usado solo una vez, muy rápido y confiable.', 590, TRUE, '2025-06-22', 4, 2),
 ('Gabinete Cougar RGB', 'Gabinete gaming con luces RGB, incluye 3 ventiladores, como nuevo.', 420, TRUE, '2025-06-22', 3, 2),
 ('RAM 8GB DDR4 Kingston', 'Memoria RAM DDR4 de 8GB, excelente para mejorar rendimiento de tu PC.', 230, TRUE, '2025-06-22', 2, 2);
 
-
+-- Categoría 3: Periféricos
 INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, usuario_id, categoria_id) VALUES
 ('Teclado Mecánico RGB', 'Teclado mecánico retroiluminado RGB, ideal para gamers. Muy poco uso.', 330, TRUE, '2025-06-22', 1, 3),
 ('Mouse Logitech M330', 'Mouse inalámbrico Logitech, ultra silencioso, ideal para trabajar desde casa.', 95, TRUE, '2025-06-22', 1, 3),
 ('Cargador Universal 90W', 'Cargador universal para laptops, compatible con múltiples marcas. Poco uso.', 110, TRUE, '2025-06-22', 4, 3),
 ('Webcam Logitech HD 1080p', 'Cámara web HD 1080p, ideal para videollamadas, poco uso, funciona perfecto.', 280, TRUE, '2025-06-22', 2, 3);
 
-
+-- Categoría 4: Celulares y Tablets
 INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, usuario_id, categoria_id) VALUES
 ('Galaxy Tab S6 Lite', 'Tablet Samsung S6 Lite con S-Pen, ideal para clases o trabajo móvil.', 2100, TRUE, '2025-06-22', 2, 4),
 ('iPhone 11', 'iPhone 11 con carcasa incluida, cámara impecable. Lista para usar.', 4800, TRUE, '2025-06-22', 4, 4),
 ('Celular Redmi Note 12s', 'Vendo Redmi Note 12s, 256GB y 8GB RAM. Excelente estado, con funda.', 1200, TRUE, '2025-06-22', 4, 4),
 ('iPad Mini 5', 'iPad Mini 5 de 64GB, batería perfecta, ideal para estudiar o dibujar.', 2500, TRUE, '2025-06-22', 1, 4);
 
+-- Categoría 5: Redes y Conectividad
 INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, usuario_id, categoria_id) VALUES
 ('Router TP-Link AC1200', 'Router doble banda, perfecto para hogares grandes. Lo vendo por mudanza.', 230, TRUE, '2025-06-22', 3, 5),
 ('Switch TP-Link 5 puertos', 'Switch TP-Link 5 puertos, ideal para expandir red en casa u oficina.', 120, TRUE, '2025-06-22', 1, 5),
 ('Antena WiFi USB Alfa', 'Adaptador WiFi Alfa de largo alcance, ideal para PC o notebook.', 180, TRUE, '2025-06-22', 4, 5),
 ('Repetidor WiFi Xiaomi', 'Repetidor Xiaomi, mejora la señal en toda la casa. En caja.', 150, TRUE, '2025-06-22', 2, 5);
 
-
+-- Categoría 6: Servicios
 INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, usuario_id, categoria_id) VALUES
 ('Armado de PC personalizado', 'Armo tu PC con tus componentes o te asesoro con la compra.', 150, TRUE, '2025-06-22', 2, 6),
 ('Licencia Windows 11 Pro', 'Vendo licencia original de Windows 11 Pro, válida y lista para activar.', 100, TRUE, '2025-06-22', 3, 6),
@@ -142,6 +145,7 @@ INSERT INTO anuncios (titulo, descripcion, precio, estado, fecha_publicacion, us
 
 
 
+-- Insertar usuarios
 INSERT INTO usuarios (id, nombre, correo, contrasena, fecha_registro) VALUES (1, 'Richard', 'vendedor1@example.com', 'pass123', '2025-05-18');
 INSERT INTO usuarios (id, nombre, correo, contrasena, fecha_registro) VALUES (2, 'Angelo', 'comprador1@example.com', 'pass1234', '2025-05-18');
 INSERT INTO usuarios (id, nombre, correo, contrasena, fecha_registro) VALUES (3, 'Laura', 'laura@example.com', '123456', '2025-06-21');
