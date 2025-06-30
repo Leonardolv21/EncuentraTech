@@ -54,6 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (respuesta.ok) {
         alert("Registro exitoso");
         window.location.href = "inicio-sesion.html";
+        
+
       } else {
         msgErrorCorreo.innerHTML = respuestaJson.mensaje || "Error al registrar";
       }

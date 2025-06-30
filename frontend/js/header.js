@@ -1,6 +1,3 @@
-// js/header.js
-
-// Función que retorna el HTML del header según el estado de sesión
 function obtenerHeaderHTML(usuario) {
   if (usuario) {
     return `
@@ -17,6 +14,7 @@ function obtenerHeaderHTML(usuario) {
         <ul>
           <li><a href="lista-anuncio.html">Anuncios</a></li>
           <li><a href="administracion-anuncios.html">Publicar Anuncio</a></li>
+          <li><a href="mis-guardados.html">Mis Guardados</a></li>
           <li class="submenu-toggle">
             <input type="checkbox" id="submenu-switch" hidden>
             <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
@@ -30,6 +28,7 @@ function obtenerHeaderHTML(usuario) {
       </nav>
     </header>`;
   } else {
+    // ... el resto de la función para usuario no logueado no cambia ...
     return `
     <header class="header">
       <div class="centrar-logo">
