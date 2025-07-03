@@ -1,0 +1,490 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.main-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin: 16px 0;
+  margin-bottom: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.chat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 16px;
+}
+
+.chat-item {
+  display: flex;
+  background-color: #c1dded;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-item:hover {
+  background-color: #f0f0f0;
+}
+
+.chat-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.chat-info h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.chat-info .vendedor {
+  font-size: 14px;
+  color: #666;
+}
+
+.chat-info .mensaje {
+  font-size: 13px;
+  color: #888;
+}
+
+.chat-window {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.volver {
+  background-color: #2C5559;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-header {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 31px;
+  margin-top : -30px;
+  color: #333;
+}
+.chat-header strong {
+  font-size: 18px;
+  display: block;
+  font-weight: bold;
+}
+
+.chat-header .titulo-anuncio {
+  font-size: 16px;
+  font-weight: normal;
+  color: #555;
+}
+
+.chat-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.mensaje-comprador .hora,
+.mensaje-vendedor .hora {
+  display: block;
+  font-size: 11px;
+  color: #000000;
+  margin-top: 4px;
+  text-align: right;
+  padding-right: 4px;
+}
+.mensaje-vendedor .hora {
+  text-align: left;
+  padding-left: 4px;
+}
+
+
+
+.mensaje-vendedor,
+.mensaje-comprador {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+.mensaje-vendedor {
+  background-color: #e4e4e4;
+  align-self: flex-start;
+}
+
+.mensaje-comprador {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+.chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-form input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chat-form button {
+  width: 80px;
+  padding: 8px 16px;
+  background-color: #2C5559;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+#anuncios-list-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+
+#anuncios-list-container .chat-item {
+    display: block; 
+    width: 250px; 
+    padding: 0; 
+}
+
+#anuncios-list-container .chat-item img {
+    width: 100%;
+    height: 150px; 
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#anuncios-list-container .chat-item .chat-info {
+    padding: 15px;
+}
+
+
+#anuncios-list-container .chat-item .chat-info h3 {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+#anuncios-list-container .chat-item .chat-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+
+
+
+
+#interesados-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; 
+}
+
+#interesados-list-container .chat-item img {
+    display: none;
+}
+
+#interesados-list-container .chat-item {
+    width: auto; 
+    display: block; 
+}
+
+
+#interesados-list-container .chat-item h3 {
+    font-weight: bold;
+    color: #01579b;
+    margin-bottom: 5px;
+}
+
+#interesados-list-container .chat-item .mensaje {
+    color: #333;
+}
+
+
+section#interesados-list {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;  
+  width: 100%;
+}
+#chat-anuncio-imagen {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .main-container h2 {
+    font-size: 30px;
+  }
+
+  .chat-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 0 32px;
+    max-width: 50%;
+    margin: 0 auto;
+    align-content: space-around;
+  }
+
+  .chat-item {
+    width: 110%;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 16px;
+    background-color: #c1dded;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .chat-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .chat-info h3 {
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+
+  .chat-info .vendedor {
+    font-size: 14px;
+    color: #444;
+  }
+
+  .chat-info .mensaje {
+    font-size: 13px;
+    color: #666;
+  }
+
+  .chat-window {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .chat-form {
+    padding: 0 16px;
+  }
+
+  .chat-form input {
+    font-size: 16px;
+  }
+
+  .chat-form button {
+    font-size: 16px;
+    padding: 8px 20px;
+  }
+
+  .chat-contenido {
+    padding: 0 16px;
+  }
+
+  .mensaje-comprador,
+  .mensaje-vendedor {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .chat-header {
+    margin-bottom: 40px;
+    font-size: 20px;
+  }
+
+  .chat-header .titulo-anuncio {
+    font-size: 17px;
+  }
+
+  .volver {
+    margin-bottom: 12px;
+    font-size: 15px;
+  }
+  
+}
+@media (min-width: 1024px) {
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .chat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .chat-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: #c1dded;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .chat-item:hover {
+    background-color: #b3d3e6;
+  }
+
+  .chat-item img {
+    width: 170px;
+    height: 120px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .chat-info h3 {
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+
+  .chat-info .vendedor {
+    font-size: 13px;
+    color: #555;
+  }
+
+  .chat-info .mensaje {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .chat-window {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-left: 1px solid #ccc;
+  }
+
+  .chat-header {
+    padding: 12px 0;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  .chat-header strong {
+    font-size: 18px;
+    display: block;
+    font-weight: bold;
+  }
+
+  .chat-header .titulo-anuncio {
+    font-size: 15px;
+    color: #666;
+  }
+
+  .chat-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
+    padding-bottom: 20px;
+  }
+
+  .mensaje-comprador,
+  .mensaje-vendedor {
+    font-size: 14px;
+    padding: 10px 14px;
+    max-width: 70%;
+    border-radius: 16px;
+  }
+
+  .mensaje-comprador {
+    align-self: flex-end;
+    background-color: #007bff;
+    color: white;
+  }
+
+  .mensaje-vendedor {
+    align-self: flex-start;
+    background-color: #e4e4e4;
+  }
+
+  .mensaje-vendedor .hora,
+  .mensaje-comprador .hora {
+    font-size: 10px;
+    margin-top: 4px;
+    color: #444;
+  }
+
+  .mensaje-vendedor .hora {
+    text-align: left;
+  }
+
+  .mensaje-comprador .hora {
+    text-align: right;
+  }
+
+  .chat-form {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+  }
+
+  .chat-form input {
+    flex: 1;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .chat-form button {
+    padding: 10px 16px;
+    font-size: 14px;
+    background-color: #2C5559;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+}

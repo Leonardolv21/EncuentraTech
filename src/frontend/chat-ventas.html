@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Ventas</title>
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/chat-ventas/header.css">
+  <link rel="stylesheet" href="css/chat-ventas/footer.css">
+  <link rel="stylesheet" href="css/chat-ventas/ventas.css">
+</head>
+<body>
+  <header class="header">
+    <div class="centrar-logo">
+      <h1 class="logo"><a href="index.html">EncuentraTech</a></h1>
+    </div>
+    <nav class="menu">
+      <label for="menu-switch" class="menu-mobile-label">
+        <i class="fa-solid fa-bars"></i> Menu
+      </label>
+      <input id="menu-switch" type="checkbox">
+      <ul>
+        <li><a href="lista-anuncio.html">Anuncios</a></li>
+        <li><a href="administracion-anuncios.html">Publicar Anuncio</a></li>
+         <li><a href="mis-guardados.html">Mis Guardados</a></li>
+        <li class="submenu-toggle">
+          <input type="checkbox" id="submenu-switch" hidden>
+          <label for="submenu-switch" class="submenu-label">Mensajes <i class="fa-solid fa-chevron-down"></i></label>
+          <div class="submenu">
+            <a href="chat-compras.html">Mis Compras</a>
+            <a href="chat-ventas.html">Mis Ventas</a>
+            <li><a href="#" id="cerrar-sesion">Cerrar sesión</a></li>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-container">
+    <section class="anuncios-list" id="anuncios-list">
+      <h2>Mis Anuncios</h2>
+      <div id="anuncios-list-container">
+      </div>
+    </section>
+
+    <section class="interesados-list" id="interesados-list" style="display: none;">
+      <button onclick="volverAnuncios()" class="volver"> Volver a Anuncios</button>
+      <h2>Interesados en <span id="titulo-anuncio-interesados"></span></h2>
+      <div id="interesados-list-container">
+      </div>
+    </section>
+
+    <section class="chat-window" id="chat-window" style="display: none;">
+      <button onclick="volverInteresados()" class="volver"> Volver a Interesados</button>
+      <div class="chat-header">
+        <img id="chat-anuncio-imagen" src="" alt="Imagen del Anuncio">
+        <div>
+          <strong id="nombre-otro-participante"></strong>
+          <span id="chat-anuncio-titulo"></span>
+        </div>
+      </div>
+      <div class="chat-contenido" id="chat-contenido">
+
+      </div>
+      <form class="chat-form" id="form-enviar-mensaje">
+        <input type="text" id="input-mensaje" placeholder="Escribe tu mensaje">
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <section class="preguntas-frecuentes">
+      <h4>Preguntas Frecuentes</h4>
+      <ul>
+        <li>¿Cómo publico un anuncio?</li>
+        <li>¿Cómo contactar al vendedor?</li>
+        <li>¿Es seguro comprar aquí?</li>
+      </ul>
+    </section>
+    <div class="footer-info">
+      <p>&copy; 2025 EncuentraTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/chat-ventas.js"></script>
+</body>
+</html>
+
